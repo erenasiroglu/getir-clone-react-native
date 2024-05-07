@@ -1,44 +1,49 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { View, TouchableOpacity, Text } from "react-native";
+import HomeNavigator from "./HomeNavigator";
 import {
   Entypo,
+  Feather,
   FontAwesome,
-  FontAwesome5,
-  FontAwesome6,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import HomeNavigator from "./HomeNavigator";
-import { TouchableOpacity } from "react-native";
+//grid list menu unread align list server
 
 const Tab = createBottomTabNavigator();
-
-function RootNavigator() {
-  const customTabBarButton = ({ children }) => {
+function Main() {
+  const CustomTabBarButton = ({ children }) => {
     return (
       <TouchableOpacity
         style={{
+          borderColor: "white",
+          borderWidth: 2,
+          borderRadius: 32,
+          justifyContent: "center",
+          marginTop: -8,
+          alignItems: "center",
+          backgroundColor: "#5C3EBC",
           width: 55,
           height: 55,
-          borderRadius: 30,
-          backgroundColor: "#6a40db",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: -8,
         }}
       >
         <Entypo name="list" size={32} color="#FFD00C" />
       </TouchableOpacity>
     );
   };
+
   return (
     <Tab.Navigator
       initialRouteName="Ana Sayfa"
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
         tabBarActiveTintColor: "#5C3EBC",
         tabBarInactiveTintColor: "#959595",
-        tabBarLabelStyle: { fontSize: 12 },
-        tabBarStyle: { backgroundColor: "#f9f9f9", height: 80 },
+        headerShown: false,
+        tabBarStyle: {
+          height: 80,
+        },
       }}
     >
       <Tab.Screen
@@ -51,7 +56,7 @@ function RootNavigator() {
         }}
       />
       <Tab.Screen
-        name="Search"
+        name="Bildirimler"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -60,32 +65,31 @@ function RootNavigator() {
         }}
       />
       <Tab.Screen
-        name="List"
+        name="Sat"
         component={HomeNavigator}
         options={{
-          tabBarButton: customTabBarButton,
+          tabBarButton: (props) => <CustomTabBarButton {...props} />,
         }}
       />
       <Tab.Screen
-        name="User"
+        name="Sohbet"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="user-alt" size={24} color={color} />
+            <FontAwesome name="user" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="Gift"
+        name="İlanlarım"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome6 name="gift" size={24} color={color} />
+            <MaterialCommunityIcons name="gift" size={24} color={color} />
           ),
         }}
       />
     </Tab.Navigator>
   );
 }
-
-export default RootNavigator;
+export default Main;
