@@ -38,6 +38,7 @@ export default [
       id: "6",
       name: "Atıştırmalık",
       src: "https://cdn.getir.com/cat/56dfe03cf82055030022cdc0_1619242841966_1619242842053.jpeg",
+      subCategories:["Birlikte İyi Gider","Çubuk","Kutu","Külah","Çoklu","Bar"]
     },
     {
       id: "7",
@@ -120,6 +121,5 @@ export default [
       name: "Ev & Yaşam",
       src: "https://cdn.getir.com/cat/5b06b056b883b700044e3e4c_1619242916956_1619242917048.jpeg",
       subCategories:["Birlikte İyi Gider","Çubuk","Kutu","Külah","Çoklu","Bar"]
-
     },
   ];
